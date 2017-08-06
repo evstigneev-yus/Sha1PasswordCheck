@@ -18,9 +18,6 @@ using Microsoft.Win32;
 
 namespace sha1CheckSum
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         string _dictionaryPath = "";
@@ -73,7 +70,9 @@ namespace sha1CheckSum
             await Task.Factory.StartNew(ReadTxtFile);
             ProgressBar.Visibility=Visibility.Hidden;
             IsEnabled = true;
+            FoundenOriginals.ItemsSource = null;
             FoundenOriginals.ItemsSource = _foundedList;
+            FoundenOriginals.UpdateLayout();
         }
         private void ReadTxtFile()
         {
@@ -83,21 +82,13 @@ namespace sha1CheckSum
             using (var sr = new StreamReader(_dictionaryPath))
             {
                 string line;
-                //uint cnt = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
 
                     if (_originalsHashes.Contains(line))
                     {
-                        //SetProgressBarText(String.Format("Обработано паролей: {0}",cnt));
                         var i = _originalsHashes.ToList().IndexOf(line);
                         _foundedList.Add(_originals[i]);
-                        
-                        if (_foundedList.Count==_originals.Length)
-                        {
-                            return;
-                        }
-                        //cnt++;
                     }
                 }
             }
