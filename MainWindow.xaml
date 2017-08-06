@@ -1,0 +1,33 @@
+﻿<Window x:Class="sha1CheckSum.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SHA1 checker" Height="460" Width="525" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="107*"/>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="155*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="254*"/>
+            <ColumnDefinition Width="104*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Open" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="84" Grid.Column="2" Height="22" Click="Button_Click"/>
+        <TextBox x:Name="FileTextBox" HorizontalAlignment="Left" Height="23" Margin="10,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"
+                 Grid.Row="0" Grid.Column="1" IsEnabled="False" FontSize="8"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Your passwords" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="149"/>
+        <Button Content="Exit" Grid.Column="2" HorizontalAlignment="Left" Margin="10,119,0,0" Grid.Row="2" VerticalAlignment="Top" Width="84" Click="Button_Click_3" Height="22"/>
+        <TextBox x:Name="dictionaryPathTextBob" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" IsEnabled="False" FontSize="8"/>
+        <Button Content="Open" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="84" Height="22" Click="Button_Click_1"/>
+        <Label Content="Pwned passwords" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="0"
+               VerticalAlignment="Top" Width="139" Height="26"/>
+        <Button Content="Find" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="84" Height="22" Click="Button_Click_4"/>
+        <ListBox x:Name="FoundenOriginals" Grid.Column="1" HorizontalAlignment="Left" Height="138" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="234"/>
+        <Label Content="Your pwned passwords" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="0"
+               VerticalAlignment="Top" Width="139" Height="26"/>
+        <ProgressBar x:Name="ProgressBar" Margin="10,11,10,10" Grid.Row="3" Grid.ColumnSpan="3" Value="100" IsIndeterminate="True" Foreground="#FFD37D01"/>
+        <TextBlock x:Name="ProgressBarText" Text="" Margin="10,11,10,10" Grid.Row="3" Grid.ColumnSpan="3" TextAlignment="Center" FontFamily="Comic Sans MS"/>
+    </Grid>
+</Window>
